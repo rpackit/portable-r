@@ -22,7 +22,9 @@ python scripts/validate.py
 ```
 
 The Windows 4.6.1 entry was built and relocation-tested on Windows x86_64.
-Its metadata records the verified artifact checksum.
+Its metadata records the verified artifact checksum. The artifact is available
+from the
+[portable-r-windows v4.6.1 prerelease](https://github.com/rpackit/portable-r-windows/releases/tag/v4.6.1).
 
 ## Artifact naming
 
