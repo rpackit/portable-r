@@ -1,0 +1,12 @@
+{
+  "schema_version": "1",
+  "runtimes": [
+    {
+      "r_version": "4.6.1",
+      "platform": "windows",
+      "arch": "x86_64",
+      "status": "verified",
+      "metadata": "metadata/windows-x86_64-4.6.1.json"
+    }
+  ]
+}

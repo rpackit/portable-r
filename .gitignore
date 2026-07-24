@@ -1,0 +1,8 @@
+*.zip
+*.tar.gz
+*.tar.zst
+*.exe
+dist/
+.codex/
+.agent-scratch/
+SESSION_TRANSCRIPT.md
