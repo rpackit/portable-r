@@ -15,9 +15,12 @@ Every published artifact has a metadata sidecar containing:
 
 The v1 JSON Schema is in
 `schemas/portable-r-metadata-v1.schema.json`. A small standard-library Python
-validator keeps registry checks independent of any package manager.
+validator keeps registry checks independent of any package manager. It applies
+the checked-in schema, verifies index/metadata consistency, enforces safe
+relative runtime paths, and checks the GitHub release naming contract.
 
 ```bash
+python -m unittest discover -s tests -v
 python scripts/validate.py
 ```
 

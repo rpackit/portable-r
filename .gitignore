@@ -1,8 +1,2 @@
-*.zip
-*.tar.gz
-*.tar.zst
-*.exe
-dist/
-.codex/
-.agent-scratch/
-SESSION_TRANSCRIPT.md
+__pycache__/
+*.py[cod]
