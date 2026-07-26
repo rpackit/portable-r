@@ -34,7 +34,7 @@ class RegistryFixture:
             "platform": "windows",
             "arch": "x86_64",
             "artifact_url": (
-                "https://github.com/rpackit/portable-r-windows/releases/"
+                "https://github.com/rpackit/runtime-win/releases/"
                 "download/v4.6.1/"
                 "portable-r-windows-x86_64-4.6.1.zip"
             ),
@@ -95,7 +95,7 @@ class ValidateRegistryTests(unittest.TestCase):
     def test_index_and_metadata_must_agree(self) -> None:
         self.fixture.metadata["r_version"] = "4.6.0"
         self.fixture.metadata["artifact_url"] = (
-            "https://github.com/rpackit/portable-r-windows/releases/"
+            "https://github.com/rpackit/runtime-win/releases/"
             "download/v4.6.0/portable-r-windows-x86_64-4.6.0.zip"
         )
         self.fixture.metadata["r_home"] = (
@@ -119,7 +119,7 @@ class ValidateRegistryTests(unittest.TestCase):
 
     def test_artifact_name_and_release_tag_are_contractual(self) -> None:
         self.fixture.metadata["artifact_url"] = (
-            "https://github.com/rpackit/portable-r-windows/releases/"
+            "https://github.com/rpackit/runtime-win/releases/"
             "download/latest/runtime.zip"
         )
         self.assert_invalid("expected GitHub release path")

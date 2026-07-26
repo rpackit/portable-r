@@ -16,6 +16,11 @@ R_VERSION_PATTERN = re.compile(r"\d+\.\d+\.\d+")
 PLATFORMS = {"windows", "macos", "linux"}
 ARCHITECTURES = {"x86_64", "arm64"}
 STATUSES = {"prototype", "verified", "deprecated"}
+RELEASE_REPOSITORIES = {
+    "windows": "runtime-win",
+    "macos": "runtime-mac",
+    "linux": "runtime-linux",
+}
 INDEX_FIELDS = {
     "r_version",
     "platform",
@@ -105,8 +110,9 @@ def validate_artifact_contract(value: dict[str, Any], location: str) -> None:
         f"portable-r-{value['platform']}-{value['arch']}-"
         f"{value['r_version']}.{extension}"
     )
+    release_repository = RELEASE_REPOSITORIES[value["platform"]]
     expected_path = (
-        f"/rpackit/portable-r-{value['platform']}/releases/download/"
+        f"/rpackit/{release_repository}/releases/download/"
         f"v{value['r_version']}/{artifact}"
     )
     if unquote(parsed.path) != expected_path:

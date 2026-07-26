@@ -1,8 +1,13 @@
-# portable-r
+# runtime
 
-This repository is the machine-readable runtime registry for **rpackit**.
+This repository is the machine-readable portable R runtime registry for
+**rpackit**.
 Runtime archives live in platform-specific GitHub Releases; this repository
 stores only version records, metadata, and schemas.
+
+The repository name is intentionally short. Published artifacts and the v1
+schema keep their existing `portable-r-*` names so current consumers and
+checksums remain stable.
 
 ## Contract
 
@@ -27,7 +32,7 @@ python scripts/validate.py
 The Windows 4.6.1 entry was built and relocation-tested on Windows x86_64.
 Its metadata records the verified artifact checksum. The artifact is available
 from the
-[portable-r-windows v4.6.1 prerelease](https://github.com/rpackit/portable-r-windows/releases/tag/v4.6.1).
+[runtime-win v4.6.1 prerelease](https://github.com/rpackit/runtime-win/releases/tag/v4.6.1).
 
 ## Artifact naming
 

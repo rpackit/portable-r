@@ -3,7 +3,7 @@
   "r_version": "4.6.1",
   "platform": "windows",
   "arch": "x86_64",
-  "artifact_url": "https://github.com/rpackit/portable-r-windows/releases/download/v4.6.1/portable-r-windows-x86_64-4.6.1.zip",
+  "artifact_url": "https://github.com/rpackit/runtime-win/releases/download/v4.6.1/portable-r-windows-x86_64-4.6.1.zip",
   "sha256": "d106a4ad618a5279d9db4a61412505a5353c94e402920c0d3a627d37c5f1bf50",
   "archive_format": "zip",
   "r_home": "portable-r-windows-x86_64-4.6.1",
