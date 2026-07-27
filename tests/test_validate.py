@@ -122,7 +122,26 @@ class ValidateRegistryTests(unittest.TestCase):
             "https://github.com/rpackit/runtime-win/releases/"
             "download/latest/runtime.zip"
         )
-        self.assert_invalid("expected GitHub release path")
+        self.assert_invalid("expected the R-version release")
+
+    def test_positive_immutable_release_revision_is_supported(self) -> None:
+        self.fixture.metadata["artifact_url"] = (
+            "https://github.com/rpackit/runtime-win/releases/"
+            "download/v4.6.1-r1/"
+            "portable-r-windows-x86_64-4.6.1.zip"
+        )
+        self.fixture.write()
+        self.assertEqual(
+            validate.validate_registry(self.fixture.root, quiet=True),
+            0,
+        )
+        for tag in ("v4.6.1-r0", "v4.6.1-r01", "v4.6.1-fix"):
+            self.fixture.metadata["artifact_url"] = (
+                "https://github.com/rpackit/runtime-win/releases/"
+                f"download/{tag}/"
+                "portable-r-windows-x86_64-4.6.1.zip"
+            )
+            self.assert_invalid("immutable positive -rN revision")
 
     def test_schema_required_fields_are_enforced(self) -> None:
         self.fixture.schema = copy.deepcopy(self.fixture.schema)

@@ -30,9 +30,15 @@ python scripts/validate.py
 ```
 
 The Windows 4.6.1 entry was built and relocation-tested on Windows x86_64.
-Its metadata records the verified artifact checksum. The artifact is available
-from the
-[runtime-win v4.6.1 prerelease](https://github.com/rpackit/runtime-win/releases/tag/v4.6.1).
+Its metadata records the verified artifact checksum. The current artifact is
+available from the immutable
+[runtime-win v4.6.1-r1 prerelease](https://github.com/rpackit/runtime-win/releases/tag/v4.6.1-r1).
+
+An immutable corrected build of the same R version may use a positive
+`-rN` release-tag suffix, for example `v4.6.1-r1`. The artifact filename and
+runtime paths remain keyed to the actual R version, while the exact release
+URL and SHA-256 distinguish the revision. Existing release assets are never
+overwritten.
 
 ## Artifact naming
 

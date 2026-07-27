@@ -111,14 +111,16 @@ def validate_artifact_contract(value: dict[str, Any], location: str) -> None:
         f"{value['r_version']}.{extension}"
     )
     release_repository = RELEASE_REPOSITORIES[value["platform"]]
-    expected_path = (
-        f"/rpackit/{release_repository}/releases/download/"
-        f"v{value['r_version']}/{artifact}"
+    release_path_pattern = re.compile(
+        rf"/rpackit/{re.escape(release_repository)}/releases/download/"
+        rf"v{re.escape(value['r_version'])}(?:-r[1-9][0-9]*)?/"
+        rf"{re.escape(artifact)}"
     )
-    if unquote(parsed.path) != expected_path:
+    if release_path_pattern.fullmatch(unquote(parsed.path)) is None:
         fail(
-            f"{location}.artifact_url: expected GitHub release path "
-            f"{expected_path!r}"
+            f"{location}.artifact_url: expected the R-version release or "
+            "an immutable positive -rN revision with the canonical artifact "
+            "filename"
         )
 
     r_home = safe_registry_path(value["r_home"], f"{location}.r_home")
